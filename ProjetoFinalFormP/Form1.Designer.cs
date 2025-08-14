@@ -59,23 +59,26 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.CornflowerBlue;
+            button1.BackColor = Color.Goldenrod;
             button1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ButtonHighlight;
             button1.Location = new Point(105, 493);
             button1.Name = "button1";
-            button1.Size = new Size(336, 80);
+            button1.Size = new Size(352, 80);
             button1.TabIndex = 5;
             button1.Text = "Login";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // textBox2
             // 
             textBox2.BorderStyle = BorderStyle.FixedSingle;
             textBox2.Location = new Point(291, 381);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(150, 31);
+            textBox2.PlaceholderText = "Digite sua senha...";
+            textBox2.Size = new Size(166, 31);
             textBox2.TabIndex = 4;
+            textBox2.UseSystemPasswordChar = true;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
             // textBox1
@@ -83,7 +86,8 @@
             textBox1.BorderStyle = BorderStyle.FixedSingle;
             textBox1.Location = new Point(291, 265);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
+            textBox1.PlaceholderText = "Digite seu usuario...";
+            textBox1.Size = new Size(166, 31);
             textBox1.TabIndex = 3;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -111,7 +115,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.CornflowerBlue;
+            panel2.BackColor = Color.Goldenrod;
             panel2.Controls.Add(label1);
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
@@ -140,6 +144,7 @@
             Controls.Add(panel1);
             MaximizeBox = false;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
