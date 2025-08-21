@@ -10,26 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjetoFinalFormP
 {
-    public partial class CriarCarro : Form
+    public partial class AtualizarCliente : Form
     {
-        public CriarCarro()
+        public AtualizarCliente()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CriarCarro_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -37,9 +22,9 @@ namespace ProjetoFinalFormP
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void AtualizarCliente_Load(object sender, EventArgs e)
         {
-            this.Close();
+
         }
     }
 }

@@ -52,7 +52,7 @@ namespace ProjetoFinalFormP
         private void button2_Click(object sender, EventArgs e)
         {
             CriarCliente add = new CriarCliente();
-            add.Show();
+            add.ShowDialog();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -73,7 +73,13 @@ namespace ProjetoFinalFormP
         private void button3_Click(object sender, EventArgs e)
         {
             CriarCarro add = new CriarCarro();
-            add.Show();
+            add.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AtualizarCliente att = new AtualizarCliente();
+            att.ShowDialog();
         }
     }
 }
