@@ -11,28 +11,28 @@ namespace ProjetoFinalFormP
         public Clientes()
         {
             InitializeComponent();
-            this.Load += Clientes_Load; // Garante que o evento Load está correto
+            this.Load += Clientes_Load;
         }
 
-        private void Clientes_Load(object sender, EventArgs e)
+        public void Clientes_Load(object sender, EventArgs e)
         {
             try
             {
                 using (var conexao = Conexao.ObterConexao())
                 {
-                    // Seleciona todos os campos do cliente
+
                     string sql = "SELECT Id, Nome, CPF, Telefone, Cidade, Estado, Pais FROM Cliente";
 
-                    // Usando DataAdapter e DataTable para popular o DataGridView
+
                     MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
                     dataGridView1.DataSource = dt;
 
-                    // Opcional: ajustar colunas
+
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    dataGridView1.ReadOnly = true; // Somente leitura
+                    dataGridView1.ReadOnly = true;
                     dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 }
             }
@@ -51,7 +51,7 @@ namespace ProjetoFinalFormP
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CriarCliente add = new CriarCliente();
+            CriarCliente add = new CriarCliente(this);
             add.ShowDialog();
         }
 
@@ -78,8 +78,64 @@ namespace ProjetoFinalFormP
 
         private void button5_Click(object sender, EventArgs e)
         {
-            AtualizarCliente att = new AtualizarCliente();
+            AtualizarCliente att = new AtualizarCliente(this);
             att.ShowDialog();
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var conexao = Conexao.ObterConexao())
+                {
+                    
+
+                    if (comboBox1.SelectedItem == null)
+                    {
+                        MessageBox.Show("Por favor, selecione um campo para buscar.");
+                        return;
+                    }
+
+                    string coluna = comboBox1.SelectedItem.ToString();
+
+                    string valor = textBox1.Text.Trim();
+
+                    
+                    string sql = $"SELECT * FROM Cliente WHERE {coluna} LIKE @valor";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conexao))
+                    {
+                        cmd.Parameters.AddWithValue("@valor", valor + "%");
+
+                        using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+
+                            dataGridView1.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar cliente: " + ex.Message);
+            }
         }
     }
 }

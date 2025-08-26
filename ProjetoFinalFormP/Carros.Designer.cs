@@ -55,6 +55,7 @@
             button6.TabIndex = 23;
             button6.Text = "🔍";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // label3
             // 
@@ -88,6 +89,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(176, 23);
             comboBox1.TabIndex = 21;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // textBox1
             // 
@@ -97,6 +99,7 @@
             textBox1.PlaceholderText = "Digite oque quer pesquisar...";
             textBox1.Size = new Size(176, 23);
             textBox1.TabIndex = 20;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // dataGridView1
             // 
@@ -109,6 +112,7 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(825, 566);
             dataGridView1.TabIndex = 14;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // panel1
             // 
@@ -166,6 +170,7 @@
             button5.TabIndex = 17;
             button5.Text = "Atualizar Carro";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button2
             // 
@@ -176,6 +181,7 @@
             button2.TabIndex = 15;
             button2.Text = "Criar OS";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Carros
             // 

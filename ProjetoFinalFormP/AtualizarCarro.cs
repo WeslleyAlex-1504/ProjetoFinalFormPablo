@@ -5,23 +5,25 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using Sistema.Database;
 using ProjetoFinalFormP.Middleware;
+using Sistema.Database;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjetoFinalFormP
 {
-    public partial class AtualizarCliente : Form
+    public partial class AtualizarCarro : Form
     {
 
-        private Clientes _formClientes;
+        private Carros _formCarros;
 
-        public AtualizarCliente(Clientes formClientes)
+        public AtualizarCarro(Carros formCarros)
         {
             InitializeComponent();
-            _formClientes = formClientes;
+            _formCarros = formCarros;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -29,17 +31,23 @@ namespace ProjetoFinalFormP
             this.Close();
         }
 
-        private void AtualizarCliente_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
 
-                string cpf = textBox3.Text.Trim();
+                string placa = textBox1.Text.Trim().ToUpper();
+
+                if (!string.IsNullOrWhiteSpace(placa))
+                {
+
+                if (!Regex.IsMatch(textBox1.Text.Trim().ToUpper(), @"^([A-Z]{3}-\d{4}|[A-Z]{3}\d[A-Z]\d{2})$"))
+                {
+                    MessageBox.Show("Placa inválida! Formatos válidos: ABC-1234 ou ABC1D23.");
+                    return;
+                }
+
+                }
 
                 using (var conexao = Conexao.ObterConexao())
                 {
@@ -47,17 +55,13 @@ namespace ProjetoFinalFormP
                     var campos = new Dictionary<string, object>();
 
                     if (!string.IsNullOrWhiteSpace(textBox1.Text))
-                        campos.Add("Nome", textBox1.Text.Trim());
-                    if (!string.IsNullOrWhiteSpace(textBox2.Text))
-                        campos.Add("Telefone", textBox2.Text.Trim());
-                    if (!string.IsNullOrWhiteSpace(textBox4.Text))
-                        campos.Add("Cidade", textBox4.Text.Trim());
-                    if (!string.IsNullOrWhiteSpace(comboBox1.Text))
-                        campos.Add("Estado", comboBox1.Text.Trim());
-                    if (!string.IsNullOrWhiteSpace(textBox5.Text))
-                        campos.Add("Pais", textBox5.Text.Trim());
+                        campos.Add("Placa", textBox1.Text.Trim());
                     if (!string.IsNullOrWhiteSpace(textBox3.Text))
-                        campos.Add("Cpf", textBox3.Text.Trim());
+                        campos.Add("Marca", textBox3.Text.Trim());
+                    if (!string.IsNullOrWhiteSpace(textBox2.Text))
+                        campos.Add("Modelo", textBox2.Text.Trim());
+                    if (!string.IsNullOrWhiteSpace(textBox4.Text))
+                        campos.Add("ano", textBox4.Text.Trim());
 
                     if (campos.Count == 0)
                     {
@@ -65,36 +69,30 @@ namespace ProjetoFinalFormP
                         return;
                     }
 
-                    if (!string.IsNullOrWhiteSpace(cpf) && !ValidadorCPF.Validar(cpf))
-                    {
-                        MessageBox.Show("CPF inválido!");
-                        return;
-                    }
-
-                    string sql = "UPDATE Cliente SET " +
+                    string sql = "UPDATE Carro SET " +
                                  string.Join(", ", campos.Keys.Select(c => $"{c} = @{c}")) +
-                                 " WHERE Cpf = @Cpf2";
+                                 " WHERE Placa = @Placa2";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conexao))
                     {
                         foreach (var par in campos)
                             cmd.Parameters.AddWithValue("@" + par.Key, par.Value);
 
-                        cmd.Parameters.AddWithValue("@Cpf2", textBox6.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Placa2", textBox6.Text.Trim());
 
                         int linhasAfetadas = cmd.ExecuteNonQuery();
 
                         if (linhasAfetadas > 0)
                         {
-                            MessageBox.Show("Cliente atualizado com sucesso!");
+                            MessageBox.Show("Carro atualizado com sucesso!");
 
-                            _formClientes.Clientes_Load(null, null);
+                            _formCarros.Carros_Load(null, null);
 
                             this.Close();
                         }
                         else
                         {
-                            MessageBox.Show("CPF não encontrado. Nenhum registro atualizado.");
+                            MessageBox.Show("Carro não encontrado. atualização cancelada.");
                         }
                     }
                 }
@@ -103,11 +101,6 @@ namespace ProjetoFinalFormP
             {
                 MessageBox.Show("Erro ao atualizar cliente: " + ex.Message);
             }
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -130,17 +123,7 @@ namespace ProjetoFinalFormP
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void textBox6_TextChanged(object sender, EventArgs e)
         {
 
         }

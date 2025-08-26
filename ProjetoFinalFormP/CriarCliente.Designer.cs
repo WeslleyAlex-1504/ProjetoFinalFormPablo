@@ -81,6 +81,7 @@
             textBox4.PlaceholderText = "Digite a cidade...";
             textBox4.Size = new Size(160, 23);
             textBox4.TabIndex = 20;
+            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // label5
             // 
@@ -103,6 +104,7 @@
             textBox3.PlaceholderText = "Digite o CPF do Cliente...";
             textBox3.Size = new Size(160, 23);
             textBox3.TabIndex = 18;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // label4
             // 
@@ -124,6 +126,7 @@
             textBox2.PlaceholderText = "Digite o telefone...";
             textBox2.Size = new Size(161, 23);
             textBox2.TabIndex = 16;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // label3
             // 
@@ -187,6 +190,7 @@
             textBox5.PlaceholderText = "Digite o nome do cliente...";
             textBox5.Size = new Size(160, 23);
             textBox5.TabIndex = 24;
+            textBox5.TextChanged += textBox5_TextChanged;
             // 
             // label6
             // 
@@ -219,6 +223,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(159, 23);
             comboBox1.TabIndex = 26;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // CriarCliente
             // 

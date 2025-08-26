@@ -98,6 +98,7 @@
             textBox2.PlaceholderText = "Digite o modelo...";
             textBox2.Size = new Size(130, 23);
             textBox2.TabIndex = 5;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // label3
             // 
@@ -118,6 +119,7 @@
             textBox3.PlaceholderText = "Digite a marca...";
             textBox3.Size = new Size(130, 23);
             textBox3.TabIndex = 7;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // label4
             // 
@@ -139,6 +141,7 @@
             textBox4.PlaceholderText = "Digite o ano...";
             textBox4.Size = new Size(130, 23);
             textBox4.TabIndex = 9;
+            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // label5
             // 
@@ -175,6 +178,7 @@
             button4.TabIndex = 23;
             button4.Text = "Criar";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // textBox5
             // 
@@ -184,6 +188,7 @@
             textBox5.PlaceholderText = "Digite o CPF do dono...";
             textBox5.Size = new Size(177, 23);
             textBox5.TabIndex = 26;
+            textBox5.TextChanged += textBox5_TextChanged;
             // 
             // label6
             // 

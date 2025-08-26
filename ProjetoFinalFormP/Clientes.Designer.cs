@@ -70,6 +70,7 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(825, 566);
             dataGridView1.TabIndex = 3;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
             // button2
             // 
@@ -146,6 +147,7 @@
             textBox1.PlaceholderText = "Digite oque quer pesquisar...";
             textBox1.Size = new Size(176, 23);
             textBox1.TabIndex = 9;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // comboBox1
             // 
@@ -157,6 +159,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(176, 23);
             comboBox1.TabIndex = 10;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
             // 
             // label2
             // 
@@ -191,6 +194,7 @@
             button6.TabIndex = 12;
             button6.Text = "🔍";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // Clientes
             // 
