@@ -20,5 +20,7 @@ namespace ProjetoFinalFormP.Model
 
         public int ClienteId { get; set; }
 
+        public Boolean Ativo { get; set; }
+
     }
 }

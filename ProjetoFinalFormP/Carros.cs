@@ -27,7 +27,7 @@ namespace ProjetoFinalFormP
                 using (var conexao = Conexao.ObterConexao())
                 {
 
-                    string sql = @"SELECT c.Id AS CarroId, c.Placa, c.Marca, c.Modelo, c.Ano,cl.Nome AS Cliente, cl.CPF AS CPF FROM Carro c INNER JOIN Cliente cl ON c.ClienteId = cl.Id
+                    string sql = @"SELECT c.Id AS CarroId, c.Placa, c.Marca, c.Modelo, c.Ano,cl.Nome,c.Ativo AS Cliente, cl.CPF AS CPF FROM Carro c INNER JOIN Cliente cl ON c.ClienteId = cl.Id WHERE c.Ativo = true
 ";
 
 
@@ -140,6 +140,49 @@ namespace ProjetoFinalFormP
         {
             adicionarOS add = new adicionarOS();
             add.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var conexao = Conexao.ObterConexao())
+                {
+                    string sql;
+
+                    
+                    if (button4.Text == "Ver Ativos")
+                    {
+                        sql = @"SELECT c.Id AS CarroId, c.Placa, c.Marca, c.Modelo, c.Ano, cl.Nome, c.Ativo AS AtivoCarro, cl.CPF 
+                    FROM Carro c 
+                    INNER JOIN Cliente cl ON c.ClienteId = cl.Id 
+                    WHERE c.Ativo = true";
+                        button4.Text = "Ver Inativos";
+                    }
+                    else
+                    {
+                        sql = @"SELECT c.Id AS CarroId, c.Placa, c.Marca, c.Modelo, c.Ano, cl.Nome, c.Ativo AS AtivoCarro, cl.CPF 
+                    FROM Carro c 
+                    INNER JOIN Cliente cl ON c.ClienteId = cl.Id 
+                    WHERE c.Ativo = false";
+                        button4.Text = "Ver Ativos";
+                    }
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dataGridView1.DataSource = dt;
+
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridView1.ReadOnly = true;
+                    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar carros: " + ex.Message);
+            }
         }
     }
 }

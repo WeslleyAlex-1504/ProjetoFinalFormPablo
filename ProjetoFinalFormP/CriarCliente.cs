@@ -48,6 +48,12 @@ namespace ProjetoFinalFormP
             try
             {
 
+                if (textBox2.Text.Trim().Length != 11)
+                {
+                    MessageBox.Show("Número inválido!! Deve conter o DD Eemplo: 51");
+                    return;
+                }
+
                 string cpf = textBox3.Text.Trim();
 
                 using (var conexao = Conexao.ObterConexao())
@@ -67,6 +73,17 @@ namespace ProjetoFinalFormP
                         if (!string.IsNullOrWhiteSpace(cpf) && !ValidadorCPF.Validar(cpf))
                         {
                             MessageBox.Show("CPF inválido!");
+                            return;
+                        }
+
+                        if (string.IsNullOrWhiteSpace(textBox1.Text) ||
+                            string.IsNullOrWhiteSpace(textBox2.Text) ||
+                            string.IsNullOrWhiteSpace(textBox3.Text) ||
+                            string.IsNullOrWhiteSpace(textBox4.Text) ||
+                            string.IsNullOrWhiteSpace(comboBox1.Text) ||
+                            string.IsNullOrWhiteSpace(textBox5.Text))
+                        {
+                            MessageBox.Show("Preencha todos os campos!");
                             return;
                         }
 

@@ -21,7 +21,7 @@ namespace ProjetoFinalFormP
                 using (var conexao = Conexao.ObterConexao())
                 {
 
-                    string sql = "SELECT Id, Nome, CPF, Telefone, Cidade, Estado, Pais FROM Cliente";
+                    string sql = "SELECT Id, Nome, CPF, Telefone, Cidade, Estado, Pais, Ativo FROM Cliente Where Ativo = true";
 
 
                     MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
@@ -103,7 +103,7 @@ namespace ProjetoFinalFormP
             {
                 using (var conexao = Conexao.ObterConexao())
                 {
-                    
+
 
                     if (comboBox1.SelectedItem == null)
                     {
@@ -115,7 +115,7 @@ namespace ProjetoFinalFormP
 
                     string valor = textBox1.Text.Trim();
 
-                    
+
                     string sql = $"SELECT * FROM Cliente WHERE {coluna} LIKE @valor";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conexao))
@@ -135,6 +135,42 @@ namespace ProjetoFinalFormP
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao buscar cliente: " + ex.Message);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var conexao = Conexao.ObterConexao())
+                {
+                    string sql;
+
+                    if (button4.Text == "Ver Ativos")
+                    {
+                        sql = "SELECT Id, Nome, CPF, Telefone, Cidade, Estado, Pais, Ativo FROM Cliente WHERE Ativo = true";
+                        button4.Text = "Ver Inativos";
+                    }
+                    else
+                    {
+                        sql = "SELECT Id, Nome, CPF, Telefone, Cidade, Estado, Pais, Ativo FROM Cliente WHERE Ativo = false";
+                        button4.Text = "Ver Ativos";
+                    }
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dataGridView1.DataSource = dt;
+
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridView1.ReadOnly = true;
+                    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar clientes: " + ex.Message);
             }
         }
     }

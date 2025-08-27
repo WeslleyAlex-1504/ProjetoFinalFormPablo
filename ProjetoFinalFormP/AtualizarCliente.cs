@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Sistema.Database;
 using ProjetoFinalFormP.Middleware;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjetoFinalFormP
 {
@@ -58,6 +59,11 @@ namespace ProjetoFinalFormP
                         campos.Add("Pais", textBox5.Text.Trim());
                     if (!string.IsNullOrWhiteSpace(textBox3.Text))
                         campos.Add("Cpf", textBox3.Text.Trim());
+                    if (!string.IsNullOrWhiteSpace(comboBox2.Text))
+                    {
+                        bool ativo = comboBox2.Text.Trim().ToLower() == "true";
+                        campos.Add("Ativo", ativo);
+                    }
 
                     if (campos.Count == 0)
                     {
@@ -65,7 +71,16 @@ namespace ProjetoFinalFormP
                         return;
                     }
 
-                    if (!string.IsNullOrWhiteSpace(cpf) && !ValidadorCPF.Validar(cpf))
+                    if (!string.IsNullOrWhiteSpace(textBox2.Text))
+                    {
+                        if (textBox2.Text.Trim().Length != 11)
+                        {
+                            MessageBox.Show("Número inválido!! Deve conter o DD Eemplo: 51");
+                            return;
+                        }
+                    }
+
+                        if (!string.IsNullOrWhiteSpace(cpf) && !ValidadorCPF.Validar(cpf))
                     {
                         MessageBox.Show("CPF inválido!");
                         return;
@@ -141,6 +156,11 @@ namespace ProjetoFinalFormP
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
