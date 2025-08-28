@@ -150,7 +150,7 @@ namespace ProjetoFinalFormP
                 {
                     string sql;
 
-                    
+
                     if (button4.Text == "Ver Ativos")
                     {
                         sql = @"SELECT c.Id AS CarroId, c.Placa, c.Marca, c.Modelo, c.Ano, cl.Nome, c.Ativo AS AtivoCarro, cl.CPF 
@@ -183,6 +183,20 @@ namespace ProjetoFinalFormP
             {
                 MessageBox.Show("Erro ao carregar carros: " + ex.Message);
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Os os = new Os();
+            os.Show();
+            this.Hide();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Clientes cliente = new Clientes();
+            cliente.Show();
+            this.Hide();
         }
     }
 }

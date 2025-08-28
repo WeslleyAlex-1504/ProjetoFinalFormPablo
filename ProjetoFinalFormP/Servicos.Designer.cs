@@ -39,6 +39,8 @@
             label2 = new Label();
             comboBox1 = new ComboBox();
             textBox1 = new TextBox();
+            button2 = new Button();
+            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -53,6 +55,7 @@
             button3.TabIndex = 42;
             button3.Text = "Atualizar Serviço";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // dataGridView1
             // 
@@ -65,6 +68,7 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(825, 566);
             dataGridView1.TabIndex = 36;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // panel1
             // 
@@ -167,11 +171,35 @@
             textBox1.Size = new Size(176, 23);
             textBox1.TabIndex = 44;
             // 
+            // button2
+            // 
+            button2.Location = new Point(829, 585);
+            button2.Margin = new Padding(2);
+            button2.Name = "button2";
+            button2.Size = new Size(120, 34);
+            button2.TabIndex = 48;
+            button2.Text = "OS";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(1252, 585);
+            button5.Margin = new Padding(2);
+            button5.Name = "button5";
+            button5.Size = new Size(120, 34);
+            button5.TabIndex = 49;
+            button5.Text = "Funcionarios";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // Servicos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1383, 630);
+            Controls.Add(button5);
+            Controls.Add(button2);
             Controls.Add(dataGridView1);
             Controls.Add(button6);
             Controls.Add(label3);
@@ -204,5 +232,7 @@
         private Label label2;
         private ComboBox comboBox1;
         private TextBox textBox1;
+        private Button button2;
+        private Button button5;
     }
 }

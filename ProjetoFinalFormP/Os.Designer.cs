@@ -41,6 +41,8 @@
             button4 = new Button();
             button5 = new Button();
             button2 = new Button();
+            button3 = new Button();
+            button8 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -56,6 +58,7 @@
             button6.TabIndex = 23;
             button6.Text = "🔍";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // label3
             // 
@@ -83,12 +86,13 @@
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Placa", "Descrição", "Data" });
+            comboBox1.Items.AddRange(new object[] { "Placa", "Descrição", "Cliente" });
             comboBox1.Location = new Point(1081, 190);
             comboBox1.Margin = new Padding(2);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(176, 23);
             comboBox1.TabIndex = 21;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // textBox1
             // 
@@ -172,6 +176,7 @@
             button4.TabIndex = 18;
             button4.Text = "OS Finalizadas";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -182,6 +187,7 @@
             button5.TabIndex = 17;
             button5.Text = "Atualizar OS";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button2
             // 
@@ -192,12 +198,37 @@
             button2.TabIndex = 15;
             button2.Text = "Criar Serviço";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(1252, 585);
+            button3.Margin = new Padding(2);
+            button3.Name = "button3";
+            button3.Size = new Size(120, 34);
+            button3.TabIndex = 24;
+            button3.Text = "Serviços";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(829, 585);
+            button8.Margin = new Padding(2);
+            button8.Name = "button8";
+            button8.Size = new Size(120, 34);
+            button8.TabIndex = 25;
+            button8.Text = "Carros";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // Os
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1383, 630);
+            Controls.Add(button8);
+            Controls.Add(button3);
             Controls.Add(button6);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -233,5 +264,7 @@
         private Button button5;
         private Button button2;
         private Button button7;
+        private Button button3;
+        private Button button8;
     }
 }

@@ -173,5 +173,12 @@ namespace ProjetoFinalFormP
                 MessageBox.Show("Erro ao carregar clientes: " + ex.Message);
             }
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Carros carro = new Carros();
+            carro.Show();
+            this.Hide();
+        }
     }
 }

@@ -220,6 +220,7 @@
             Controls.Add(label2);
             Controls.Add(panel2);
             Margin = new Padding(2);
+            MaximizeBox = false;
             Name = "CriarCarro";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CriarCarro";

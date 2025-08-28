@@ -38,6 +38,7 @@
             button4 = new Button();
             button2 = new Button();
             button3 = new Button();
+            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -53,6 +54,7 @@
             button6.TabIndex = 33;
             button6.Text = "🔍";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // label2
             // 
@@ -85,6 +87,7 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(825, 566);
             dataGridView1.TabIndex = 25;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // panel1
             // 
@@ -130,8 +133,9 @@
             button4.Name = "button4";
             button4.Size = new Size(120, 34);
             button4.TabIndex = 28;
-            button4.Text = "Ver Inativo";
+            button4.Text = "Ver Demitidos";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button2
             // 
@@ -142,6 +146,7 @@
             button2.TabIndex = 26;
             button2.Text = "Criar Funcionario";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -153,12 +158,25 @@
             button3.TabIndex = 34;
             button3.Text = "Atualizar Funcionario";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click_1;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(829, 585);
+            button5.Margin = new Padding(2);
+            button5.Name = "button5";
+            button5.Size = new Size(120, 34);
+            button5.TabIndex = 35;
+            button5.Text = "Serviços";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // Funcionarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1383, 630);
+            Controls.Add(button5);
             Controls.Add(button3);
             Controls.Add(button6);
             Controls.Add(label2);
@@ -189,5 +207,6 @@
         private Button button4;
         private Button button2;
         private Button button3;
+        private Button button5;
     }
 }

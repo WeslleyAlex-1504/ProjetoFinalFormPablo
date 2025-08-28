@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using Sistema.Database;
 
 namespace ProjetoFinalFormP
 {
@@ -15,6 +17,33 @@ namespace ProjetoFinalFormP
         public Servicos()
         {
             InitializeComponent();
+            this.Load += Servico_Load;
+        }
+
+        public void Servico_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var conexao = Conexao.ObterConexao())
+                {
+                    string sql = @"SELECT s.Id AS ServicoId, s.SerRealizado, s.Peca, os.Descricao AS OS, f.Nome AS Funcionario FROM Servico s INNER JOIN OS os ON s.OsId = os.Id
+                                INNER JOIN Funcionario f ON s.FuncionarioId = f.Id";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dataGridView1.DataSource = dt;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridView1.ReadOnly = true;
+                    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar serviços: " + ex.Message);
+            }
+
         }
 
 
@@ -23,6 +52,31 @@ namespace ProjetoFinalFormP
             Form2 login = new Form2();
             login.Show();
             this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Funcionarios funcionario = new Funcionarios();
+            funcionario.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Os os = new Os();
+            os.Show();
+            this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            atualizarServico att = new atualizarServico();
+            att.ShowDialog();
         }
     }
 }
