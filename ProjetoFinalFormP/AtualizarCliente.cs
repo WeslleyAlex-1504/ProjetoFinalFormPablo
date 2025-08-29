@@ -47,16 +47,25 @@ namespace ProjetoFinalFormP
 
                     var campos = new Dictionary<string, object>();
 
-                    if (!string.IsNullOrWhiteSpace(textBox1.Text))
-                        campos.Add("Nome", textBox1.Text.Trim());
+                    if (!string.IsNullOrWhiteSpace(textBox1.Text) && textBox1.Text.Trim().Length <= 3)
+                    {
+                        MessageBox.Show("Nome deve ter pelo menos 3 caracteres!");
+                        return;
+                    }
                     if (!string.IsNullOrWhiteSpace(textBox2.Text))
                         campos.Add("Telefone", textBox2.Text.Trim());
-                    if (!string.IsNullOrWhiteSpace(textBox4.Text))
-                        campos.Add("Cidade", textBox4.Text.Trim());
+                    if (!string.IsNullOrWhiteSpace(textBox4.Text) && textBox4.Text.Trim().Length <= 3)
+                    {
+                        MessageBox.Show("Cidade deve ter pelo menos 3 caracteres!");
+                        return;
+                    }
                     if (!string.IsNullOrWhiteSpace(comboBox1.Text))
                         campos.Add("Estado", comboBox1.Text.Trim());
-                    if (!string.IsNullOrWhiteSpace(textBox5.Text))
-                        campos.Add("Pais", textBox5.Text.Trim());
+                    if (!string.IsNullOrWhiteSpace(textBox5.Text) && textBox5.Text.Trim().Length <= 3)
+                    {
+                        MessageBox.Show("País deve ter pelo menos 3 caracteres!");
+                        return;
+                    }
                     if (!string.IsNullOrWhiteSpace(textBox3.Text))
                         campos.Add("Cpf", textBox3.Text.Trim());
                     if (!string.IsNullOrWhiteSpace(comboBox2.Text))

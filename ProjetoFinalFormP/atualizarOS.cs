@@ -22,6 +22,13 @@ namespace ProjetoFinalFormP
         {
             InitializeComponent();
             _formOs = formOs;
+
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = " ";
+            dateTimePicker1.ShowCheckBox = true;
+            dateTimePicker1.Checked = false;
+            dateTimePicker1.MaxDate = DateTime.Today;
+
         }
 
         private void atualizarOS_Load(object sender, EventArgs e)
@@ -36,7 +43,7 @@ namespace ProjetoFinalFormP
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            dateTimePicker1.MaxDate = DateTime.Today;
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -48,14 +55,23 @@ namespace ProjetoFinalFormP
                     var campos = new Dictionary<string, object>();
 
                     if (!string.IsNullOrWhiteSpace(textBox1.Text))
+                    {
+                        if (textBox1.Text.Trim().Length <= 3)
+                        {
+                            MessageBox.Show("Descrição deve ter pelo menos 3 caracteres!");
+                            return;
+                        }
                         campos.Add("Descricao", textBox1.Text.Trim());
-                    if (dateTimePicker1.Value != null)
+                    }
+                    if (dateTimePicker1.Checked)
                         campos.Add("Data", dateTimePicker1.Value);
                     if (!string.IsNullOrWhiteSpace(comboBox1.Text))
                     {
                         bool ativo = comboBox1.Text.Trim().Equals("Incompleto", StringComparison.OrdinalIgnoreCase);
                         campos.Add("Ativo", ativo);
                     }
+
+
 
                     if (campos.Count == 0)
                     {

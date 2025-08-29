@@ -48,11 +48,6 @@ namespace ProjetoFinalFormP
             try
             {
 
-                if (textBox2.Text.Trim().Length != 11)
-                {
-                    MessageBox.Show("Número inválido!! Deve conter o DD Eemplo: 51");
-                    return;
-                }
 
                 string cpf = textBox3.Text.Trim();
 
@@ -70,20 +65,27 @@ namespace ProjetoFinalFormP
                         cmd.Parameters.AddWithValue("@Estado", comboBox1.Text.Trim());
                         cmd.Parameters.AddWithValue("@Pais", textBox5.Text.Trim());
 
+
+                        if (string.IsNullOrWhiteSpace(textBox1.Text) || textBox1.Text.Trim().Length <= 3 ||
+                            string.IsNullOrWhiteSpace(textBox2.Text) || textBox2.Text.Trim().Length <= 3 ||
+                            string.IsNullOrWhiteSpace(textBox3.Text) || textBox3.Text.Trim().Length <= 3 ||
+                            string.IsNullOrWhiteSpace(textBox4.Text) || textBox4.Text.Trim().Length <= 3 ||
+                            string.IsNullOrWhiteSpace(comboBox1.Text) ||
+                            string.IsNullOrWhiteSpace(textBox5.Text) || textBox5.Text.Trim().Length <= 3)
+                        {
+                            MessageBox.Show("Todos os campos devem ter pelo menos 3 caracteres e não podem ser nulos!");
+                            return;
+                        }
+
                         if (!string.IsNullOrWhiteSpace(cpf) && !ValidadorCPF.Validar(cpf))
                         {
                             MessageBox.Show("CPF inválido!");
                             return;
                         }
 
-                        if (string.IsNullOrWhiteSpace(textBox1.Text) ||
-                            string.IsNullOrWhiteSpace(textBox2.Text) ||
-                            string.IsNullOrWhiteSpace(textBox3.Text) ||
-                            string.IsNullOrWhiteSpace(textBox4.Text) ||
-                            string.IsNullOrWhiteSpace(comboBox1.Text) ||
-                            string.IsNullOrWhiteSpace(textBox5.Text))
+                        if (textBox2.Text.Trim().Length != 11)
                         {
-                            MessageBox.Show("Preencha todos os campos!");
+                            MessageBox.Show("Número inválido!! Deve conter o DD Eemplo: 51");
                             return;
                         }
 

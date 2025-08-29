@@ -57,11 +57,33 @@ namespace ProjetoFinalFormP
                     if (!string.IsNullOrWhiteSpace(textBox1.Text))
                         campos.Add("Placa", textBox1.Text.Trim());
                     if (!string.IsNullOrWhiteSpace(textBox3.Text))
+                    {
+                        if (textBox3.Text.Trim().Length < 3)
+                        {
+                            MessageBox.Show("Marca deve ter pelo menos 3 caracteres!");
+                            return;
+                        }
                         campos.Add("Marca", textBox3.Text.Trim());
+                    }
+
                     if (!string.IsNullOrWhiteSpace(textBox2.Text))
+                    {
+                        if (textBox2.Text.Trim().Length < 3)
+                        {
+                            MessageBox.Show("Modelo deve ter pelo menos 3 caracteres!");
+                            return;
+                        }
                         campos.Add("Modelo", textBox2.Text.Trim());
+                    }
                     if (!string.IsNullOrWhiteSpace(textBox4.Text))
+                    {
+                        if (textBox4.Text.Trim().Length != 4 || Convert.ToInt32(textBox4.Text.Trim()) < 1950 || Convert.ToInt32(textBox4.Text.Trim()) > 2025)
+                        {
+                            MessageBox.Show("Ano deve ter 4 caracteres e estar entre 1950 e 2025!");
+                            return;
+                        }
                         campos.Add("ano", textBox4.Text.Trim());
+                    }
 
                     if (campos.Count == 0)
                     {

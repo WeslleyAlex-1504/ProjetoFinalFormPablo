@@ -75,8 +75,42 @@ namespace ProjetoFinalFormP
 
         private void button3_Click(object sender, EventArgs e)
         {
-            atualizarServico att = new atualizarServico();
+            atualizarServico att = new atualizarServico(this);
             att.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var conexao = Conexao.ObterConexao())
+                {
+                    string sql;
+
+                    if (button4.Text == "Ver Finalizados")
+                    {
+                        sql = "SELECT Id, SerRealizado, Peca, Ativo FROM Servico WHERE Ativo = 1";
+                        button4.Text = "Ver Incompletos";
+                    }
+                    else
+                    {
+                        sql = "SELECT Id, SerRealizado, Peca, Ativo FROM Servico WHERE Ativo = 0";
+                        button4.Text = "Ver Finalizados";
+                    }
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conexao))
+                    {
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dataGridView1.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+            }
         }
     }
 }

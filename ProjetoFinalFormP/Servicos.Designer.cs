@@ -48,10 +48,9 @@
             // button3
             // 
             button3.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(1040, 346);
-            button3.Margin = new Padding(2);
+            button3.Location = new Point(1486, 577);
             button3.Name = "button3";
-            button3.Size = new Size(120, 34);
+            button3.Size = new Size(171, 57);
             button3.TabIndex = 42;
             button3.Text = "Atualizar Serviço";
             button3.UseVisualStyleBackColor = true;
@@ -62,11 +61,10 @@
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(0, 65);
-            dataGridView1.Margin = new Padding(2);
+            dataGridView1.Location = new Point(0, 108);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(825, 566);
+            dataGridView1.Size = new Size(1179, 943);
             dataGridView1.TabIndex = 36;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -77,19 +75,17 @@
             panel1.Controls.Add(button1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1383, 65);
+            panel1.Size = new Size(1924, 108);
             panel1.TabIndex = 39;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(605, 18);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(864, 30);
             label1.Name = "label1";
-            label1.Size = new Size(200, 29);
+            label1.Size = new Size(234, 48);
             label1.TabIndex = 1;
             label1.Text = "Master Motors";
             // 
@@ -98,10 +94,9 @@
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button1.BackColor = Color.DarkGray;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(1210, 21);
-            button1.Margin = new Padding(2);
+            button1.Location = new Point(1729, 35);
             button1.Name = "button1";
-            button1.Size = new Size(130, 26);
+            button1.Size = new Size(134, 43);
             button1.TabIndex = 2;
             button1.Text = "Voltar";
             button1.UseVisualStyleBackColor = false;
@@ -109,22 +104,23 @@
             // 
             // button4
             // 
-            button4.Location = new Point(1040, 411);
-            button4.Margin = new Padding(2);
+            button4.Location = new Point(1486, 685);
             button4.Name = "button4";
-            button4.Size = new Size(120, 34);
+            button4.Size = new Size(171, 57);
             button4.TabIndex = 38;
-            button4.Text = "Ver Inativo";
+            button4.Text = "Ver Incompletos";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button6
             // 
             button6.FlatAppearance.BorderSize = 0;
             button6.FlatStyle = FlatStyle.Flat;
             button6.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button6.Location = new Point(1223, 225);
+            button6.Location = new Point(1747, 375);
+            button6.Margin = new Padding(4, 5, 4, 5);
             button6.Name = "button6";
-            button6.Size = new Size(75, 51);
+            button6.Size = new Size(107, 85);
             button6.TabIndex = 47;
             button6.Text = "🔍";
             button6.UseVisualStyleBackColor = true;
@@ -133,10 +129,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(960, 256);
-            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Location = new Point(1371, 427);
             label3.Name = "label3";
-            label3.Size = new Size(46, 20);
+            label3.Size = new Size(67, 30);
             label3.TabIndex = 46;
             label3.Text = "Filtro:";
             // 
@@ -144,10 +139,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(960, 225);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Location = new Point(1371, 375);
             label2.Name = "label2";
-            label2.Size = new Size(73, 20);
+            label2.Size = new Size(108, 30);
             label2.TabIndex = 43;
             label2.Text = "Pesquisar:";
             // 
@@ -156,27 +150,24 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Nome", "CPF", "Telefone", "Cidade", "Estado", "Pais" });
-            comboBox1.Location = new Point(1040, 255);
-            comboBox1.Margin = new Padding(2);
+            comboBox1.Location = new Point(1486, 425);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(176, 23);
+            comboBox1.Size = new Size(250, 33);
             comboBox1.TabIndex = 45;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(1040, 225);
-            textBox1.Margin = new Padding(2);
+            textBox1.Location = new Point(1486, 375);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Digite oque quer pesquisar...";
-            textBox1.Size = new Size(176, 23);
+            textBox1.Size = new Size(250, 31);
             textBox1.TabIndex = 44;
             // 
             // button2
             // 
-            button2.Location = new Point(829, 585);
-            button2.Margin = new Padding(2);
+            button2.Location = new Point(1185, 846);
             button2.Name = "button2";
-            button2.Size = new Size(120, 34);
+            button2.Size = new Size(171, 57);
             button2.TabIndex = 48;
             button2.Text = "OS";
             button2.UseVisualStyleBackColor = true;
@@ -184,10 +175,9 @@
             // 
             // button5
             // 
-            button5.Location = new Point(1252, 585);
-            button5.Margin = new Padding(2);
+            button5.Location = new Point(1741, 846);
             button5.Name = "button5";
-            button5.Size = new Size(120, 34);
+            button5.Size = new Size(171, 57);
             button5.TabIndex = 49;
             button5.Text = "Funcionarios";
             button5.UseVisualStyleBackColor = true;
@@ -195,9 +185,9 @@
             // 
             // Servicos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1383, 630);
+            ClientSize = new Size(1924, 1050);
             Controls.Add(button5);
             Controls.Add(button2);
             Controls.Add(dataGridView1);
@@ -209,7 +199,6 @@
             Controls.Add(button3);
             Controls.Add(panel1);
             Controls.Add(button4);
-            Margin = new Padding(2);
             Name = "Servicos";
             Text = "Servicos";
             WindowState = FormWindowState.Maximized;

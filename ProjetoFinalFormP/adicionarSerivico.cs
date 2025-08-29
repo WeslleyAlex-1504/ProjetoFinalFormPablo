@@ -75,6 +75,14 @@ namespace ProjetoFinalFormP
         {
             try
             {
+
+                string servico = textBox2.Text.Trim();
+                if (string.IsNullOrWhiteSpace(servico) || servico.Length <= 4)
+                {
+                    MessageBox.Show("O campo 'Serviço Realizado' deve ter mais de 4 caracteres!");
+                    return;
+                }
+
                 using (var conexao = Conexao.ObterConexao())
                 {
 

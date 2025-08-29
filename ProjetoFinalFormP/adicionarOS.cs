@@ -19,6 +19,11 @@ namespace ProjetoFinalFormP
         public adicionarOS()
         {
             InitializeComponent();
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = " ";
+            dateTimePicker1.ShowCheckBox = true;
+            dateTimePicker1.Checked = false;
+            dateTimePicker1.MaxDate = DateTime.Today;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -30,9 +35,16 @@ namespace ProjetoFinalFormP
         {
             try
             {
+                string descricao = textBox1.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(descricao) || descricao.Length <= 4)
+                {
+                    MessageBox.Show("Descrição deve ter mais de 4 caracteres!");
+                    return;
+                }
+
                 using (var conexao = Conexao.ObterConexao())
                 {
-
                     string sqlCarro = "SELECT Id FROM Carro WHERE Placa = @Placa";
 
                     int carroId;
@@ -47,8 +59,17 @@ namespace ProjetoFinalFormP
                             return;
                         }
 
+
+
                         carroId = Convert.ToInt32(result);
                     }
+
+                    if (!dateTimePicker1.Checked)
+                    {
+                        MessageBox.Show("Escolha uma data para criar a OS!");
+                        return;
+                    }
+
 
                     string sql = @"INSERT INTO OS (Descricao, Data, CarroId) VALUES (@Descricao, @Data, @CarroId)";
 

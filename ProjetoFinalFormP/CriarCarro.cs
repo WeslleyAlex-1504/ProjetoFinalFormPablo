@@ -128,19 +128,14 @@ namespace ProjetoFinalFormP
                         return;
                     }
 
-                    if (string.IsNullOrWhiteSpace(textBox1.Text) ||   
-                        string.IsNullOrWhiteSpace(textBox2.Text) ||   
-                        string.IsNullOrWhiteSpace(textBox3.Text) ||   
-                        string.IsNullOrWhiteSpace(textBox4.Text) ||   
-                        string.IsNullOrWhiteSpace(textBox5.Text))     
+                    if (string.IsNullOrWhiteSpace(textBox1.Text) || textBox1.Text.Trim().Length <= 3 ||
+                        string.IsNullOrWhiteSpace(textBox2.Text) || textBox2.Text.Trim().Length <= 3 ||
+                        string.IsNullOrWhiteSpace(textBox3.Text) || textBox3.Text.Trim().Length <= 3 ||
+                        string.IsNullOrWhiteSpace(textBox4.Text) ||
+                        !int.TryParse(textBox4.Text.Trim(), out int ano) || ano < 1950 || ano > 2025 ||
+                        string.IsNullOrWhiteSpace(textBox5.Text) || textBox5.Text.Trim().Length <= 3)
                     {
-                        MessageBox.Show("Preencha todos os campos do carro!");
-                        return;
-                    }
-
-                    if (textBox4.Text.Trim().Length != 4)
-                    {
-                        MessageBox.Show("Ano inválido! Deve ter exatamente 4 caracteres.");
+                        MessageBox.Show("Todos os campos devem ter pelo menos 3 caracteres e Ano deve ser entre 1950 e 2025!");
                         return;
                     }
 
