@@ -24,7 +24,7 @@ namespace ProjetoFinalFormP
             _formOs = formOs;
 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = " ";
+            dateTimePicker1.CustomFormat = "dd/MM/yyyy"; 
             dateTimePicker1.ShowCheckBox = true;
             dateTimePicker1.Checked = false;
             dateTimePicker1.MaxDate = DateTime.Today;
@@ -56,22 +56,29 @@ namespace ProjetoFinalFormP
 
                     if (!string.IsNullOrWhiteSpace(textBox1.Text))
                     {
-                        if (textBox1.Text.Trim().Length <= 3)
+                        if (textBox1.Text.Trim().Length < 3)
                         {
                             MessageBox.Show("Descrição deve ter pelo menos 3 caracteres!");
                             return;
                         }
                         campos.Add("Descricao", textBox1.Text.Trim());
                     }
+
                     if (dateTimePicker1.Checked)
                         campos.Add("Data", dateTimePicker1.Value);
+
                     if (!string.IsNullOrWhiteSpace(comboBox1.Text))
                     {
-                        bool ativo = comboBox1.Text.Trim().Equals("Incompleto", StringComparison.OrdinalIgnoreCase);
+                        string status = comboBox1.Text.Trim();
+                        bool ativo = status.Equals("Incompleto", StringComparison.OrdinalIgnoreCase);
                         campos.Add("Ativo", ativo);
+
+                        // Se o status for Finalizado (ou false), adiciona DiaFinalizado
+                        if (!ativo) // ou status.Equals("Finalizado", StringComparison.OrdinalIgnoreCase)
+                        {
+                            campos.Add("DiaFinalizado", DateTime.Today);
+                        }
                     }
-
-
 
                     if (campos.Count == 0)
                     {
@@ -79,18 +86,14 @@ namespace ProjetoFinalFormP
                         return;
                     }
 
-                    string sql = "UPDATE OS SET " +
+                    string sql = "UPDATE `OS` SET " +
                                  string.Join(", ", campos.Keys.Select(c => $"{c} = @{c}")) +
-                                 " WHERE Id = @Id";
-
-                    if (!campos.ContainsKey("Ativo"))
-                        sql += " AND Ativo = 1";
+                                 " WHERE `Id` = @Id";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conexao))
                     {
                         foreach (var par in campos)
                             cmd.Parameters.AddWithValue("@" + par.Key, par.Value);
-
 
                         cmd.Parameters.AddWithValue("@Id", textBox2.Text.Trim());
 
@@ -99,9 +102,7 @@ namespace ProjetoFinalFormP
                         if (linhasAfetadas > 0)
                         {
                             MessageBox.Show("Registro atualizado com sucesso!");
-
                             _formOs.OS_Load(null, null);
-
                             this.Close();
                         }
                         else
@@ -116,6 +117,7 @@ namespace ProjetoFinalFormP
                 MessageBox.Show("Erro ao atualizar: " + ex.Message);
             }
         }
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {

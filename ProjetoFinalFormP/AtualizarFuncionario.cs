@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Sistema.Database;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjetoFinalFormP
 {
@@ -36,8 +37,18 @@ namespace ProjetoFinalFormP
                 {
                     var campos = new Dictionary<string, object>();
 
-                    if (!string.IsNullOrWhiteSpace(textBox1.Text))
-                        campos.Add("Nome", textBox1.Text.Trim());
+                    string servico = textBox1.Text.Trim();
+                    if (!string.IsNullOrWhiteSpace(servico))
+                    {
+                        if (servico.Length < 2)
+                        {
+                            MessageBox.Show("O campo 'Nome' deve ter 3 ou mais caracteres!");
+                            return;
+                        }
+                        campos.Add("Nome", servico);
+                    }
+
+                    
 
                     if (!string.IsNullOrWhiteSpace(comboBox2.Text))
                     {
@@ -50,7 +61,7 @@ namespace ProjetoFinalFormP
                         MessageBox.Show("Nenhum campo preenchido para atualizar.");
                         return;
                     }
-                 
+
                     string identificador = textBox6.Text.Trim();
 
                     string sql = "UPDATE Funcionario SET " +
@@ -97,6 +108,21 @@ namespace ProjetoFinalFormP
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AtualizarFuncionario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }

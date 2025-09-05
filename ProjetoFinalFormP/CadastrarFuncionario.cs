@@ -64,5 +64,10 @@ namespace ProjetoFinalFormP
         {
             this.Close();
         }
+
+        private void CadastrarFuncionario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

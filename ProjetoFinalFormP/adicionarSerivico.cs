@@ -45,8 +45,16 @@ namespace ProjetoFinalFormP
     "Modulo de conectividade (CarPlay/Android Auto)", "Sensor de qualidade do ar interno", "Filtro de ar condicionado HEPA",
     "Airbags laterais e de cortina", "Airbags de joelho", "Sistema de monitoramento de pressão dos pneus (TPMS)", "Direção elétrica assistida",
     "Freio elétrico de estacionamento (EPB)", "Sistema de regeneração de energia (EV/híbrido)", "Painel de instrumentos digital (TFT/LCD)",
-    "Display head-up (HUD)"
-};
+    "Display head-up (HUD)","Óleo hidráulico da direção", "Óleo de freio DOT 3", "Óleo de freio DOT 4", "Óleo de freio DOT 5", "Fluido CVT", "Fluido de transmissão automática (ATF)",
+    "Graxa para rolamentos", "Aditivo para radiador", "Aditivo para combustível", "Tensor da correia", "Polia do virabrequim", "Corrente de comando",
+    "Tuchos hidráulicos", "Balancins de válvula", "Junta da tampa de válvulas", "Cárter do motor", "Protetor de cárter", "Reservatório de expansão do radiador",
+    "Tampa do radiador", "Regulador de pressão do combustível", "Válvula de purga do cânister", "Reservatório do cânister", "Corpo de borboleta (TBI)", "Atuador da marcha lenta",
+    "Junta do coletor de escape", "Flexível do escapamento", "Relés", "Fusíveis", "Sensor ABS", "Sensor de velocidade da roda",
+    "Módulo do airbag", "Atuador elétrico do retrovisor", "Atuador elétrico do porta-malas", "Sensor de chuva", "Sensor de luminosidade", "Sensor de monitoramento dos pneus (TPMS)",
+    "Alerta de ponto cego", "Assistente de faixa (Lane Assist)", "Câmera 360°", "Teto solar elétrico", "Apoio de braço", "Encosto de cabeça",
+    "Tapetes internos", "Forro interno do teto", "Isolamento acústico do motor", "Reservatório de água do limpador", "Tampa do tanque de combustível", "Juntas homocinéticas",
+    "Buchas da bandeja", "Calço de suspensão", "Polia do alternador", "Escovas do alternador",
+    };
 
 
         public adicionarSerivico()
@@ -77,9 +85,9 @@ namespace ProjetoFinalFormP
             {
 
                 string servico = textBox2.Text.Trim();
-                if (string.IsNullOrWhiteSpace(servico) || servico.Length <= 4)
+                if (string.IsNullOrWhiteSpace(servico) || servico.Length < 3)
                 {
-                    MessageBox.Show("O campo 'Serviço Realizado' deve ter mais de 4 caracteres!");
+                    MessageBox.Show("O campo 'Serviço Realizado' deve ter 4 ou mais caracteres!");
                     return;
                 }
 
@@ -184,6 +192,16 @@ namespace ProjetoFinalFormP
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

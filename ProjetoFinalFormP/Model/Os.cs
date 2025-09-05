@@ -17,5 +17,7 @@ namespace ProjetoFinalFormP.Model
         public int CarroId { get; set; }
 
         public Boolean Ativo { get; set; }
+
+        public DateTime DiaFinalizado { get; set; }
 }
 }

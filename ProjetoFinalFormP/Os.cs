@@ -82,8 +82,8 @@ namespace ProjetoFinalFormP
 
                     if (button4.Text == "OS Finalizadas")
                     {
-                        sql = @"SELECT os.Id AS OsId, os.Descricao, os.Data, c.Placa AS Carro, cl.Nome AS Cliente, os.Ativo 
-                    FROM OS os
+                        sql = @"SELECT os.Id AS OsId, os.Descricao, os.Data, c.Placa AS Carro, cl.Nome AS Cliente, os.Ativo, os.DiaFinalizado
+                    FROM `OS` os
                     INNER JOIN Carro c ON os.CarroId = c.Id
                     INNER JOIN Cliente cl ON c.ClienteId = cl.Id
                     WHERE os.Ativo = 0";

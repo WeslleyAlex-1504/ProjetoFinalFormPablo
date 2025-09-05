@@ -26,8 +26,8 @@ namespace ProjetoFinalFormP
             {
                 using (var conexao = Conexao.ObterConexao())
                 {
-                    string sql = @"SELECT s.Id AS ServicoId, s.SerRealizado, s.Peca, os.Descricao AS OS, f.Nome AS Funcionario FROM Servico s INNER JOIN OS os ON s.OsId = os.Id
-                                INNER JOIN Funcionario f ON s.FuncionarioId = f.Id";
+                    string sql = @"SELECT s.Id AS ServicoId, s.SerRealizado AS Serviço, s.Peca, os.Descricao AS OS, f.Nome AS Funcionario,s.Ativo FROM Servico s INNER JOIN OS os ON s.OsId = os.Id
+                                INNER JOIN Funcionario f ON s.FuncionarioId = f.Id WHERE s.Ativo = 1";
 
                     MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
                     DataTable dt = new DataTable();
@@ -89,12 +89,14 @@ namespace ProjetoFinalFormP
 
                     if (button4.Text == "Ver Finalizados")
                     {
-                        sql = "SELECT Id, SerRealizado, Peca, Ativo FROM Servico WHERE Ativo = 1";
+                        sql = @"SELECT s.Id AS ServicoId, s.SerRealizado, s.Peca,s.Ativo, os.Descricao AS OS, f.Nome AS Funcionario FROM Servico s INNER JOIN OS os ON s.OsId = os.Id
+                                INNER JOIN Funcionario f ON s.FuncionarioId = f.Id WHERE s.Ativo = 1";
                         button4.Text = "Ver Incompletos";
                     }
                     else
                     {
-                        sql = "SELECT Id, SerRealizado, Peca, Ativo FROM Servico WHERE Ativo = 0";
+                        sql = @"SELECT s.Id AS ServicoId, s.SerRealizado, s.Peca,s.Ativo, os.Descricao AS OS, f.Nome AS Funcionario FROM Servico s INNER JOIN OS os ON s.OsId = os.Id
+                                INNER JOIN Funcionario f ON s.FuncionarioId = f.Id WHERE s.Ativo = 0";
                         button4.Text = "Ver Finalizados";
                     }
 

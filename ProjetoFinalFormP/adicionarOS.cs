@@ -20,7 +20,7 @@ namespace ProjetoFinalFormP
         {
             InitializeComponent();
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = " ";
+            dateTimePicker1.CustomFormat = "dd/MM/yyyy"; 
             dateTimePicker1.ShowCheckBox = true;
             dateTimePicker1.Checked = false;
             dateTimePicker1.MaxDate = DateTime.Today;
@@ -37,9 +37,9 @@ namespace ProjetoFinalFormP
             {
                 string descricao = textBox1.Text.Trim();
 
-                if (string.IsNullOrWhiteSpace(descricao) || descricao.Length <= 4)
+                if (string.IsNullOrWhiteSpace(descricao) || descricao.Length < 3)
                 {
-                    MessageBox.Show("Descrição deve ter mais de 4 caracteres!");
+                    MessageBox.Show("Descrição deve 4 ou mais caracteres!");
                     return;
                 }
 
@@ -110,6 +110,11 @@ namespace ProjetoFinalFormP
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adicionarOS_Load(object sender, EventArgs e)
         {
 
         }

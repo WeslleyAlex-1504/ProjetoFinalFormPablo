@@ -45,8 +45,10 @@
             // button3
             // 
             button3.BackColor = Color.Goldenrod;
+            button3.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(326, 550);
+            button3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.Location = new Point(327, 582);
             button3.Name = "button3";
             button3.Size = new Size(177, 68);
             button3.TabIndex = 37;
@@ -57,8 +59,10 @@
             // button4
             // 
             button4.BackColor = Color.Goldenrod;
+            button4.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
             button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(66, 550);
+            button4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button4.Location = new Point(66, 582);
             button4.Name = "button4";
             button4.Size = new Size(177, 68);
             button4.TabIndex = 36;
@@ -78,10 +82,11 @@
             // 
             // textBox2
             // 
+            textBox2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox2.Location = new Point(249, 372);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "Digite a placa do carro...";
-            textBox2.Size = new Size(184, 31);
+            textBox2.Size = new Size(255, 37);
             textBox2.TabIndex = 31;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
@@ -97,11 +102,12 @@
             // 
             // textBox1
             // 
+            textBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.Location = new Point(250, 263);
             textBox1.MaxLength = 99999;
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Digite a descrição...";
-            textBox1.Size = new Size(184, 31);
+            textBox1.Size = new Size(254, 37);
             textBox1.TabIndex = 29;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -129,11 +135,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(141, 38);
+            label1.Location = new Point(39, 41);
             label1.Name = "label1";
-            label1.Size = new Size(266, 48);
+            label1.Size = new Size(496, 48);
             label1.TabIndex = 0;
-            label1.Text = "Cadastro de OS";
+            label1.Text = "Cadastro de ordem de serviço";
             // 
             // mySqlCommand1
             // 
@@ -144,11 +150,12 @@
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dateTimePicker1.Format = DateTimePickerFormat.Short;
             dateTimePicker1.Location = new Point(249, 315);
             dateTimePicker1.Margin = new Padding(4, 5, 4, 5);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(184, 31);
+            dateTimePicker1.Size = new Size(255, 37);
             dateTimePicker1.TabIndex = 40;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
@@ -171,6 +178,7 @@
             Name = "adicionarOS";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "adicionarOS";
+            Load += adicionarOS_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);

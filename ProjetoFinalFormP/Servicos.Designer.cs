@@ -47,7 +47,8 @@
             // 
             // button3
             // 
-            button3.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button3.Font = new Font("Segoe UI", 9F);
             button3.Location = new Point(1486, 577);
             button3.Name = "button3";
             button3.Size = new Size(171, 57);
@@ -85,7 +86,7 @@
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(864, 30);
             label1.Name = "label1";
-            label1.Size = new Size(234, 48);
+            label1.Size = new Size(265, 48);
             label1.TabIndex = 1;
             label1.Text = "Master Motors";
             // 
@@ -93,7 +94,9 @@
             // 
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button1.BackColor = Color.DarkGray;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(179, 179, 179);
             button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.Location = new Point(1729, 35);
             button1.Name = "button1";
             button1.Size = new Size(134, 43);
@@ -104,6 +107,8 @@
             // 
             // button4
             // 
+            button4.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button4.Font = new Font("Segoe UI", 9F);
             button4.Location = new Point(1486, 685);
             button4.Name = "button4";
             button4.Size = new Size(171, 57);
@@ -148,24 +153,28 @@
             // comboBox1
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Nome", "CPF", "Telefone", "Cidade", "Estado", "Pais" });
             comboBox1.Location = new Point(1486, 425);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(250, 33);
+            comboBox1.Size = new Size(250, 38);
             comboBox1.TabIndex = 45;
             // 
             // textBox1
             // 
+            textBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.Location = new Point(1486, 375);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Digite oque quer pesquisar...";
-            textBox1.Size = new Size(250, 31);
+            textBox1.Size = new Size(250, 37);
             textBox1.TabIndex = 44;
             // 
             // button2
             // 
-            button2.Location = new Point(1185, 846);
+            button2.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button2.Font = new Font("Segoe UI", 11F);
+            button2.Location = new Point(1185, 850);
             button2.Name = "button2";
             button2.Size = new Size(171, 57);
             button2.TabIndex = 48;
@@ -175,7 +184,9 @@
             // 
             // button5
             // 
-            button5.Location = new Point(1741, 846);
+            button5.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button5.Font = new Font("Segoe UI", 11F);
+            button5.Location = new Point(1740, 850);
             button5.Name = "button5";
             button5.Size = new Size(171, 57);
             button5.TabIndex = 49;

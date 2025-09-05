@@ -39,11 +39,35 @@ namespace ProjetoFinalFormP
         {
             try
             {
-
                 string cpf = textBox3.Text.Trim();
 
                 using (var conexao = Conexao.ObterConexao())
                 {
+                    int clienteId;
+                    using (var cmdCliente = new MySqlCommand("SELECT Id FROM Cliente WHERE Cpf = @Cpf", conexao))
+                    {
+                        cmdCliente.Parameters.AddWithValue("@Cpf", textBox6.Text.Trim());
+                        object result = cmdCliente.ExecuteScalar();
+                        if (result == null)
+                        {
+                            MessageBox.Show("Cliente não encontrado!");
+                            return;
+                        }
+                        clienteId = Convert.ToInt32(result);
+                    }
+
+                    string sqlCheck = @" SELECT COUNT(*)  FROM OS o INNER JOIN Carro c ON o.CarroId = c.Id WHERE c.ClienteId = @ClienteId";
+
+                    using (var checkCmd = new MySqlCommand(sqlCheck, conexao))
+                    {
+                        checkCmd.Parameters.AddWithValue("@ClienteId", clienteId);
+                        long qtdOs = (long)checkCmd.ExecuteScalar();
+                        if (qtdOs > 0)
+                        {
+                            MessageBox.Show("Este cliente já possui Ordem de Serviço cadastrada e não pode ser atualizado.");
+                            return;
+                        }
+                    }
 
                     var campos = new Dictionary<string, object>();
 
@@ -89,7 +113,7 @@ namespace ProjetoFinalFormP
                         }
                     }
 
-                        if (!string.IsNullOrWhiteSpace(cpf) && !ValidadorCPF.Validar(cpf))
+                    if (!string.IsNullOrWhiteSpace(cpf) && !ValidadorCPF.Validar(cpf))
                     {
                         MessageBox.Show("CPF inválido!");
                         return;
@@ -111,9 +135,7 @@ namespace ProjetoFinalFormP
                         if (linhasAfetadas > 0)
                         {
                             MessageBox.Show("Cliente atualizado com sucesso!");
-
                             _formClientes.Clientes_Load(null, null);
-
                             this.Close();
                         }
                         else
@@ -170,6 +192,11 @@ namespace ProjetoFinalFormP
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

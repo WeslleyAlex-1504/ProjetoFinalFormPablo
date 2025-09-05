@@ -48,9 +48,10 @@
             button6.FlatAppearance.BorderSize = 0;
             button6.FlatStyle = FlatStyle.Flat;
             button6.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button6.Location = new Point(1264, 145);
+            button6.Location = new Point(1806, 242);
+            button6.Margin = new Padding(4, 5, 4, 5);
             button6.Name = "button6";
-            button6.Size = new Size(75, 42);
+            button6.Size = new Size(107, 70);
             button6.TabIndex = 33;
             button6.Text = "🔍";
             button6.UseVisualStyleBackColor = true;
@@ -60,20 +61,19 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(1001, 160);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Location = new Point(1430, 267);
             label2.Name = "label2";
-            label2.Size = new Size(73, 20);
+            label2.Size = new Size(108, 30);
             label2.TabIndex = 24;
             label2.Text = "Pesquisar:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(1081, 160);
-            textBox1.Margin = new Padding(2);
+            textBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(1544, 267);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Pesquisar pelo nome...";
-            textBox1.Size = new Size(176, 23);
+            textBox1.Size = new Size(250, 37);
             textBox1.TabIndex = 30;
             // 
             // dataGridView1
@@ -81,11 +81,10 @@
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(0, 65);
-            dataGridView1.Margin = new Padding(2);
+            dataGridView1.Location = new Point(0, 108);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(825, 566);
+            dataGridView1.Size = new Size(1179, 943);
             dataGridView1.TabIndex = 25;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -96,19 +95,18 @@
             panel1.Controls.Add(button1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1383, 65);
+            panel1.Size = new Size(1924, 108);
             panel1.TabIndex = 29;
+            panel1.Paint += panel1_Paint;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(605, 18);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(864, 30);
             label1.Name = "label1";
-            label1.Size = new Size(200, 29);
+            label1.Size = new Size(258, 48);
             label1.TabIndex = 1;
             label1.Text = "Master Motors";
             // 
@@ -116,11 +114,12 @@
             // 
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button1.BackColor = Color.DarkGray;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(179, 179, 179);
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(1209, 21);
-            button1.Margin = new Padding(2);
+            button1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(1727, 35);
             button1.Name = "button1";
-            button1.Size = new Size(130, 26);
+            button1.Size = new Size(134, 43);
             button1.TabIndex = 2;
             button1.Text = "Voltar";
             button1.UseVisualStyleBackColor = false;
@@ -128,10 +127,11 @@
             // 
             // button4
             // 
-            button4.Location = new Point(1047, 435);
-            button4.Margin = new Padding(2);
+            button4.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button4.Font = new Font("Segoe UI", 11F);
+            button4.Location = new Point(1496, 725);
             button4.Name = "button4";
-            button4.Size = new Size(120, 34);
+            button4.Size = new Size(171, 57);
             button4.TabIndex = 28;
             button4.Text = "Ver Demitidos";
             button4.UseVisualStyleBackColor = true;
@@ -139,10 +139,11 @@
             // 
             // button2
             // 
-            button2.Location = new Point(1047, 259);
-            button2.Margin = new Padding(2);
+            button2.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Location = new Point(1496, 432);
             button2.Name = "button2";
-            button2.Size = new Size(120, 34);
+            button2.Size = new Size(171, 57);
             button2.TabIndex = 26;
             button2.Text = "Criar Funcionario";
             button2.UseVisualStyleBackColor = true;
@@ -150,11 +151,11 @@
             // 
             // button3
             // 
-            button3.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(1047, 347);
-            button3.Margin = new Padding(2);
+            button3.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button3.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.Location = new Point(1496, 578);
             button3.Name = "button3";
-            button3.Size = new Size(120, 34);
+            button3.Size = new Size(171, 57);
             button3.TabIndex = 34;
             button3.Text = "Atualizar Funcionario";
             button3.UseVisualStyleBackColor = true;
@@ -162,10 +163,11 @@
             // 
             // button5
             // 
-            button5.Location = new Point(829, 585);
-            button5.Margin = new Padding(2);
+            button5.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button5.Font = new Font("Segoe UI", 11F);
+            button5.Location = new Point(1185, 845);
             button5.Name = "button5";
-            button5.Size = new Size(120, 34);
+            button5.Size = new Size(171, 57);
             button5.TabIndex = 35;
             button5.Text = "Serviços";
             button5.UseVisualStyleBackColor = true;
@@ -173,9 +175,9 @@
             // 
             // Funcionarios
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1383, 630);
+            ClientSize = new Size(1924, 1050);
             Controls.Add(button5);
             Controls.Add(button3);
             Controls.Add(button6);
@@ -185,7 +187,6 @@
             Controls.Add(panel1);
             Controls.Add(button4);
             Controls.Add(button2);
-            Margin = new Padding(2);
             Name = "Funcionarios";
             Text = "Funcionarios";
             WindowState = FormWindowState.Maximized;

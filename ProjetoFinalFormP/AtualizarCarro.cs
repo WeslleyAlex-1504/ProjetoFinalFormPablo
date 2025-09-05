@@ -41,11 +41,11 @@ namespace ProjetoFinalFormP
                 if (!string.IsNullOrWhiteSpace(placa))
                 {
 
-                if (!Regex.IsMatch(textBox1.Text.Trim().ToUpper(), @"^([A-Z]{3}-\d{4}|[A-Z]{3}\d[A-Z]\d{2})$"))
-                {
-                    MessageBox.Show("Placa inválida! Formatos válidos: ABC-1234 ou ABC1D23.");
-                    return;
-                }
+                    if (!Regex.IsMatch(textBox1.Text.Trim().ToUpper(), @"^([A-Z]{3}-\d{4}|[A-Z]{3}\d[A-Z]\d{2})$"))
+                    {
+                        MessageBox.Show("Placa inválida! Formatos válidos: ABC-1234 ou ABC1D23.");
+                        return;
+                    }
 
                 }
 
@@ -56,9 +56,10 @@ namespace ProjetoFinalFormP
 
                     if (!string.IsNullOrWhiteSpace(textBox1.Text))
                         campos.Add("Placa", textBox1.Text.Trim());
+
                     if (!string.IsNullOrWhiteSpace(textBox3.Text))
                     {
-                        if (textBox3.Text.Trim().Length < 3)
+                        if (textBox3.Text.Trim().Length < 2)
                         {
                             MessageBox.Show("Marca deve ter pelo menos 3 caracteres!");
                             return;
@@ -68,7 +69,7 @@ namespace ProjetoFinalFormP
 
                     if (!string.IsNullOrWhiteSpace(textBox2.Text))
                     {
-                        if (textBox2.Text.Trim().Length < 3)
+                        if (textBox2.Text.Trim().Length < 2)
                         {
                             MessageBox.Show("Modelo deve ter pelo menos 3 caracteres!");
                             return;
@@ -83,6 +84,12 @@ namespace ProjetoFinalFormP
                             return;
                         }
                         campos.Add("ano", textBox4.Text.Trim());
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(comboBox1.Text))
+                    {
+                        bool ativo = comboBox1.Text.Trim().Equals("Ativar", StringComparison.OrdinalIgnoreCase);
+                        campos.Add("Ativo", ativo);
                     }
 
                     if (campos.Count == 0)
@@ -146,6 +153,11 @@ namespace ProjetoFinalFormP
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

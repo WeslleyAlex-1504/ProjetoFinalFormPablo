@@ -46,12 +46,13 @@
             // comboBox2
             // 
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "Finalizado", "incompleto" });
             comboBox2.Location = new Point(273, 427);
             comboBox2.Margin = new Padding(4, 5, 4, 5);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(227, 33);
+            comboBox2.Size = new Size(227, 38);
             comboBox2.TabIndex = 73;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
@@ -67,30 +68,33 @@
             // 
             // textBox6
             // 
+            textBox6.Font = new Font("Segoe UI", 11F);
             textBox6.Location = new Point(374, 158);
             textBox6.Margin = new Padding(4, 5, 4, 5);
             textBox6.MaxLength = 11;
             textBox6.Name = "textBox6";
             textBox6.PlaceholderText = "Id do Serviço...";
-            textBox6.Size = new Size(180, 31);
+            textBox6.Size = new Size(180, 37);
             textBox6.TabIndex = 71;
             textBox6.TextChanged += textBox6_TextChanged;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.Location = new Point(17, 158);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(354, 32);
+            label8.Size = new Size(323, 30);
             label8.TabIndex = 70;
             label8.Text = "Id do serviço que deseja mudar:";
             // 
             // button2
             // 
             button2.BackColor = Color.Goldenrod;
+            button2.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
             button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 11F);
             button2.Location = new Point(327, 582);
             button2.Name = "button2";
             button2.Size = new Size(177, 68);
@@ -102,7 +106,9 @@
             // button1
             // 
             button1.BackColor = Color.Goldenrod;
+            button1.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
             button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 11F);
             button1.Location = new Point(67, 582);
             button1.Name = "button1";
             button1.Size = new Size(177, 68);
@@ -113,10 +119,11 @@
             // 
             // textBox1
             // 
+            textBox1.Font = new Font("Segoe UI", 11F);
             textBox1.Location = new Point(273, 298);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Digite o serviço realizado...";
-            textBox1.Size = new Size(227, 31);
+            textBox1.Size = new Size(227, 37);
             textBox1.TabIndex = 67;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -124,7 +131,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(87, 298);
+            label2.Location = new Point(87, 301);
             label2.Name = "label2";
             label2.Size = new Size(183, 30);
             label2.TabIndex = 66;
@@ -152,10 +159,11 @@
             // 
             // textBox2
             // 
+            textBox2.Font = new Font("Segoe UI", 11F);
             textBox2.Location = new Point(273, 362);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "Digite o peça...";
-            textBox2.Size = new Size(227, 31);
+            textBox2.Size = new Size(227, 37);
             textBox2.TabIndex = 75;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
@@ -163,7 +171,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(84, 360);
+            label3.Location = new Point(87, 365);
             label3.Name = "label3";
             label3.Size = new Size(124, 30);
             label3.TabIndex = 74;

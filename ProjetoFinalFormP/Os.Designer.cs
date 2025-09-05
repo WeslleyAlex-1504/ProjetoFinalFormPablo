@@ -64,7 +64,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(1430, 318);
+            label3.Location = new Point(1323, 320);
             label3.Name = "label3";
             label3.Size = new Size(67, 30);
             label3.TabIndex = 22;
@@ -74,7 +74,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(1430, 267);
+            label2.Location = new Point(1323, 270);
             label2.Name = "label2";
             label2.Size = new Size(108, 30);
             label2.TabIndex = 13;
@@ -83,20 +83,22 @@
             // comboBox1
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Placa", "Descrição", "Cliente" });
-            comboBox1.Location = new Point(1544, 317);
+            comboBox1.Location = new Point(1461, 317);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(250, 33);
+            comboBox1.Size = new Size(324, 38);
             comboBox1.TabIndex = 21;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(1544, 267);
+            textBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(1461, 267);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Digite oque quer pesquisar...";
-            textBox1.Size = new Size(250, 31);
+            textBox1.Size = new Size(324, 37);
             textBox1.TabIndex = 20;
             // 
             // dataGridView1
@@ -126,7 +128,9 @@
             // 
             button7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button7.BackColor = Color.DarkGray;
+            button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(179, 179, 179);
             button7.FlatStyle = FlatStyle.Flat;
+            button7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button7.Location = new Point(1727, 33);
             button7.Name = "button7";
             button7.Size = new Size(134, 43);
@@ -147,6 +151,8 @@
             // 
             // button4
             // 
+            button4.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button4.Font = new Font("Segoe UI", 11F);
             button4.Location = new Point(1496, 728);
             button4.Name = "button4";
             button4.Size = new Size(171, 57);
@@ -157,6 +163,8 @@
             // 
             // button5
             // 
+            button5.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button5.Font = new Font("Segoe UI", 11F);
             button5.Location = new Point(1496, 580);
             button5.Name = "button5";
             button5.Size = new Size(171, 57);
@@ -167,6 +175,8 @@
             // 
             // button2
             // 
+            button2.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button2.Font = new Font("Segoe UI", 11F);
             button2.Location = new Point(1496, 432);
             button2.Name = "button2";
             button2.Size = new Size(171, 57);
@@ -177,7 +187,9 @@
             // 
             // button3
             // 
-            button3.Location = new Point(1789, 975);
+            button3.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button3.Font = new Font("Segoe UI", 11F);
+            button3.Location = new Point(1740, 850);
             button3.Name = "button3";
             button3.Size = new Size(171, 57);
             button3.TabIndex = 24;
@@ -187,7 +199,9 @@
             // 
             // button8
             // 
-            button8.Location = new Point(1184, 975);
+            button8.FlatAppearance.MouseOverBackColor = SystemColors.ButtonFace;
+            button8.Font = new Font("Segoe UI", 11F);
+            button8.Location = new Point(1185, 850);
             button8.Name = "button8";
             button8.Size = new Size(171, 57);
             button8.TabIndex = 25;

@@ -66,12 +66,12 @@ namespace ProjetoFinalFormP
                         cmd.Parameters.AddWithValue("@Pais", textBox5.Text.Trim());
 
 
-                        if (string.IsNullOrWhiteSpace(textBox1.Text) || textBox1.Text.Trim().Length <= 3 ||
-                            string.IsNullOrWhiteSpace(textBox2.Text) || textBox2.Text.Trim().Length <= 3 ||
-                            string.IsNullOrWhiteSpace(textBox3.Text) || textBox3.Text.Trim().Length <= 3 ||
-                            string.IsNullOrWhiteSpace(textBox4.Text) || textBox4.Text.Trim().Length <= 3 ||
+                        if (string.IsNullOrWhiteSpace(textBox1.Text) || textBox1.Text.Trim().Length < 2 ||
+                            string.IsNullOrWhiteSpace(textBox2.Text) || textBox2.Text.Trim().Length < 2 ||
+                            string.IsNullOrWhiteSpace(textBox3.Text) || textBox3.Text.Trim().Length < 2 ||
+                            string.IsNullOrWhiteSpace(textBox4.Text) || textBox4.Text.Trim().Length < 2 ||
                             string.IsNullOrWhiteSpace(comboBox1.Text) ||
-                            string.IsNullOrWhiteSpace(textBox5.Text) || textBox5.Text.Trim().Length <= 3)
+                            string.IsNullOrWhiteSpace(textBox5.Text) || textBox5.Text.Trim().Length < 2)
                         {
                             MessageBox.Show("Todos os campos devem ter pelo menos 3 caracteres e não podem ser nulos!");
                             return;
@@ -98,7 +98,7 @@ namespace ProjetoFinalFormP
                             _formClientes.Clientes_Load(null, null);
 
                             this.Close();
-                          
+
                         }
                         else
                         {
@@ -134,6 +134,16 @@ namespace ProjetoFinalFormP
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
