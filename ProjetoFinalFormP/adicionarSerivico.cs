@@ -84,12 +84,6 @@ namespace ProjetoFinalFormP
             try
             {
 
-                string servico = textBox2.Text.Trim();
-                if (string.IsNullOrWhiteSpace(servico) || servico.Length < 3)
-                {
-                    MessageBox.Show("O campo 'Serviço Realizado' deve ter 4 ou mais caracteres!");
-                    return;
-                }
 
                 using (var conexao = Conexao.ObterConexao())
                 {
@@ -100,6 +94,18 @@ namespace ProjetoFinalFormP
                         return;
                     }
 
+                    string servico = textBox2.Text.Trim();
+                    if (string.IsNullOrWhiteSpace(servico) || servico.Length < 3)
+                    {
+                        MessageBox.Show("O campo 'Serviço Realizado' deve ter 4 ou mais caracteres!");
+                        return;
+                    }
+                    string peca = textBox4.Text.Trim();
+                    if (string.IsNullOrWhiteSpace(peca) || peca.Length < 3)
+                    {
+                        MessageBox.Show("O campo 'Peça' deve ter 4 ou mais caracteres!");
+                        return;
+                    }
 
                     string sqlOs = "SELECT Ativo FROM OS WHERE Id = @OsId LIMIT 1";
                     bool osAtiva;
@@ -120,6 +126,23 @@ namespace ProjetoFinalFormP
                         MessageBox.Show("Não é possível adicionar serviço: a OS está finalizada.");
                         return;
                     }
+
+
+                    string sqlCheck = @"SELECT COUNT(*) FROM Servico WHERE SerRealizado = @SerRealizado AND Peca = @Peca AND OsId = @OsId";
+                    using (var cmdCheck = new MySqlCommand(sqlCheck, conexao))
+                    {
+                        cmdCheck.Parameters.AddWithValue("@SerRealizado", servico);
+                        cmdCheck.Parameters.AddWithValue("@Peca", peca);
+                        cmdCheck.Parameters.AddWithValue("@OsId", osId);
+                        long existe = (long)cmdCheck.ExecuteScalar();
+                        if (existe > 0)
+                        {
+                            MessageBox.Show("Esse serviço já foi registrado nesta OS.");
+                            return;
+                        }
+                    }
+
+
 
                     string sqlFuncionario = "SELECT Id, Ativo FROM Funcionario WHERE Nome = @Nome LIMIT 1";
                     int funcionarioId;

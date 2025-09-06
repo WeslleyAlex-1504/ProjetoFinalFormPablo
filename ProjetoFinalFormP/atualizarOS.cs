@@ -52,11 +52,48 @@ namespace ProjetoFinalFormP
             {
                 using (var conexao = Conexao.ObterConexao())
                 {
+
+                    int osId = int.Parse(textBox2.Text.Trim());
+                    int carroId;
+
+                    using (var cmd = new MySqlCommand("SELECT CarroId FROM OS WHERE Id = @Id", conexao))
+                    {
+                        cmd.Parameters.AddWithValue("@Id", osId);
+                        object resultado = cmd.ExecuteScalar();
+
+                        if (resultado == null)
+                        {
+                            MessageBox.Show("OS não encontrada.");
+                            return;
+                        }
+
+                        carroId = Convert.ToInt32(resultado);
+                    }
+
+                    using (var cmdCarro = new MySqlCommand("SELECT Ativo FROM Carro WHERE Id = @Id", conexao))
+                    {
+                        cmdCarro.Parameters.AddWithValue("@Id", carroId);
+                        object ativoObj = cmdCarro.ExecuteScalar();
+
+                        if (ativoObj == null)
+                        {
+                            MessageBox.Show("Carro associado não encontrado.");
+                            return;
+                        }
+
+                        bool carroAtivo = Convert.ToBoolean(ativoObj);
+                        if (!carroAtivo)
+                        {
+                            MessageBox.Show("Carro inativo. Não é possível atualizar a OS.");
+                            return;
+                        }
+                    }
+
                     var campos = new Dictionary<string, object>();
 
                     if (!string.IsNullOrWhiteSpace(textBox1.Text))
                     {
-                        if (textBox1.Text.Trim().Length < 3)
+                        if (textBox1.Text.Trim().Length < 2)
                         {
                             MessageBox.Show("Descrição deve ter pelo menos 3 caracteres!");
                             return;
@@ -73,8 +110,8 @@ namespace ProjetoFinalFormP
                         bool ativo = status.Equals("Incompleto", StringComparison.OrdinalIgnoreCase);
                         campos.Add("Ativo", ativo);
 
-                        // Se o status for Finalizado (ou false), adiciona DiaFinalizado
-                        if (!ativo) // ou status.Equals("Finalizado", StringComparison.OrdinalIgnoreCase)
+                        
+                        if (!ativo) 
                         {
                             campos.Add("DiaFinalizado", DateTime.Today);
                         }

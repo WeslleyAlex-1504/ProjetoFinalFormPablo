@@ -27,6 +27,15 @@ namespace ProjetoFinalFormP
         {
             try
             {
+
+                string nome = textBox1.Text.Trim();
+
+                if (nome.Length < 2)
+                {
+                    MessageBox.Show("O nome do funcionário deve ter pelo menos 3 caracteres.");
+                    return;
+                }
+
                 using (var conexao = Conexao.ObterConexao())
                 {
                     string sql = @"INSERT INTO Funcionario (Nome) VALUES (@Nome)";

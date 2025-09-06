@@ -56,7 +56,7 @@ namespace ProjetoFinalFormP
                         clienteId = Convert.ToInt32(result);
                     }
 
-                    string sqlCheck = @" SELECT COUNT(*)  FROM OS o INNER JOIN Carro c ON o.CarroId = c.Id WHERE c.ClienteId = @ClienteId";
+                    string sqlCheck = @" SELECT COUNT(*)  FROM OS o INNER JOIN Carro c ON o.CarroId = c.Id WHERE c.ClienteId = @ClienteId AND o.Ativo = 1";
 
                     using (var checkCmd = new MySqlCommand(sqlCheck, conexao))
                     {
@@ -71,30 +71,48 @@ namespace ProjetoFinalFormP
 
                     var campos = new Dictionary<string, object>();
 
-                    if (!string.IsNullOrWhiteSpace(textBox1.Text) && textBox1.Text.Trim().Length <= 3)
+                    if (!string.IsNullOrWhiteSpace(textBox1.Text))
                     {
-                        MessageBox.Show("Nome deve ter pelo menos 3 caracteres!");
-                        return;
+                        if (textBox1.Text.Trim().Length < 2)
+                        {
+                            MessageBox.Show("Nome deve ter pelo menos 3 caracteres!");
+                            return;
+                        }
+                        campos.Add("Nome", textBox1.Text.Trim());
                     }
+
                     if (!string.IsNullOrWhiteSpace(textBox2.Text))
                         campos.Add("Telefone", textBox2.Text.Trim());
-                    if (!string.IsNullOrWhiteSpace(textBox4.Text) && textBox4.Text.Trim().Length <= 3)
+
+                    if (!string.IsNullOrWhiteSpace(textBox4.Text))
                     {
-                        MessageBox.Show("Cidade deve ter pelo menos 3 caracteres!");
-                        return;
+                        if (textBox4.Text.Trim().Length < 2)
+                        {
+                            MessageBox.Show("Cidade deve ter pelo menos 3 caracteres!");
+                            return;
+                        }
+                        campos.Add("Cidade", textBox4.Text.Trim());
                     }
+
                     if (!string.IsNullOrWhiteSpace(comboBox1.Text))
                         campos.Add("Estado", comboBox1.Text.Trim());
-                    if (!string.IsNullOrWhiteSpace(textBox5.Text) && textBox5.Text.Trim().Length <= 3)
+
+                    if (!string.IsNullOrWhiteSpace(textBox5.Text))
                     {
-                        MessageBox.Show("País deve ter pelo menos 3 caracteres!");
-                        return;
+                        if (textBox5.Text.Trim().Length < 2)
+                        {
+                            MessageBox.Show("País deve ter pelo menos 3 caracteres!");
+                            return;
+                        }
+                        campos.Add("Pais", textBox5.Text.Trim());
                     }
+
                     if (!string.IsNullOrWhiteSpace(textBox3.Text))
                         campos.Add("Cpf", textBox3.Text.Trim());
+
                     if (!string.IsNullOrWhiteSpace(comboBox2.Text))
                     {
-                        bool ativo = comboBox2.Text.Trim().ToLower() == "true";
+                        bool ativo = comboBox2.Text.Trim().Equals("Ativar", StringComparison.OrdinalIgnoreCase);
                         campos.Add("Ativo", ativo);
                     }
 

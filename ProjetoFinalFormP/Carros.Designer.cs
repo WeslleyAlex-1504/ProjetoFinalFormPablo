@@ -51,10 +51,9 @@
             button6.FlatAppearance.BorderSize = 0;
             button6.FlatStyle = FlatStyle.Flat;
             button6.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button6.Location = new Point(1806, 267);
-            button6.Margin = new Padding(4, 5, 4, 5);
+            button6.Location = new Point(1264, 160);
             button6.Name = "button6";
-            button6.Size = new Size(107, 85);
+            button6.Size = new Size(75, 51);
             button6.TabIndex = 23;
             button6.Text = "🔍";
             button6.UseVisualStyleBackColor = true;
@@ -64,9 +63,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(1430, 318);
+            label3.Location = new Point(952, 193);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(67, 30);
+            label3.Size = new Size(46, 20);
             label3.TabIndex = 22;
             label3.Text = "Filtro:";
             // 
@@ -74,9 +74,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(1430, 267);
+            label2.Location = new Point(952, 160);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(108, 30);
+            label2.Size = new Size(73, 20);
             label2.TabIndex = 13;
             label2.Text = "Pesquisar:";
             // 
@@ -86,19 +87,21 @@
             comboBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Nome", "CPF", "Placa", "Modelo", "Ano", "Marca" });
-            comboBox1.Location = new Point(1544, 317);
+            comboBox1.Location = new Point(1047, 190);
+            comboBox1.Margin = new Padding(2, 2, 2, 2);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(250, 38);
+            comboBox1.Size = new Size(210, 28);
             comboBox1.TabIndex = 21;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // textBox1
             // 
             textBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(1544, 267);
+            textBox1.Location = new Point(1047, 160);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Digite oque quer pesquisar...";
-            textBox1.Size = new Size(250, 37);
+            textBox1.Size = new Size(210, 27);
             textBox1.TabIndex = 20;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -107,10 +110,11 @@
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(0, 108);
+            dataGridView1.Location = new Point(0, 65);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1179, 943);
+            dataGridView1.Size = new Size(825, 566);
             dataGridView1.TabIndex = 14;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -121,8 +125,9 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1924, 108);
+            panel1.Size = new Size(1347, 65);
             panel1.TabIndex = 19;
             // 
             // button3
@@ -132,9 +137,10 @@
             button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(179, 179, 179);
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(1727, 32);
+            button3.Location = new Point(1209, 19);
+            button3.Margin = new Padding(2, 2, 2, 2);
             button3.Name = "button3";
-            button3.Size = new Size(134, 43);
+            button3.Size = new Size(94, 26);
             button3.TabIndex = 24;
             button3.Text = "Voltar";
             button3.UseVisualStyleBackColor = false;
@@ -144,9 +150,10 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(884, 30);
+            label1.Location = new Point(619, 18);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(261, 48);
+            label1.Size = new Size(183, 29);
             label1.TabIndex = 1;
             label1.Text = "Master Motors";
             // 
@@ -154,9 +161,10 @@
             // 
             button4.FlatAppearance.MouseDownBackColor = SystemColors.ButtonFace;
             button4.Font = new Font("Segoe UI", 11F);
-            button4.Location = new Point(1496, 728);
+            button4.Location = new Point(1047, 437);
+            button4.Margin = new Padding(2, 2, 2, 2);
             button4.Name = "button4";
-            button4.Size = new Size(171, 57);
+            button4.Size = new Size(120, 34);
             button4.TabIndex = 18;
             button4.Text = "Ver Inativo";
             button4.UseVisualStyleBackColor = true;
@@ -166,9 +174,10 @@
             // 
             button5.FlatAppearance.MouseDownBackColor = SystemColors.ButtonFace;
             button5.Font = new Font("Segoe UI", 11F);
-            button5.Location = new Point(1496, 572);
+            button5.Location = new Point(1047, 343);
+            button5.Margin = new Padding(2, 2, 2, 2);
             button5.Name = "button5";
-            button5.Size = new Size(171, 57);
+            button5.Size = new Size(120, 34);
             button5.TabIndex = 17;
             button5.Text = "Atualizar Carro";
             button5.UseVisualStyleBackColor = true;
@@ -178,9 +187,10 @@
             // 
             button2.FlatAppearance.MouseDownBackColor = SystemColors.ButtonFace;
             button2.Font = new Font("Segoe UI", 11F);
-            button2.Location = new Point(1496, 432);
+            button2.Location = new Point(1047, 259);
+            button2.Margin = new Padding(2, 2, 2, 2);
             button2.Name = "button2";
-            button2.Size = new Size(171, 57);
+            button2.Size = new Size(120, 34);
             button2.TabIndex = 15;
             button2.Text = "Criar OS";
             button2.UseVisualStyleBackColor = true;
@@ -190,9 +200,10 @@
             // 
             button1.FlatAppearance.MouseDownBackColor = SystemColors.ButtonFace;
             button1.Font = new Font("Segoe UI", 11F);
-            button1.Location = new Point(1740, 850);
+            button1.Location = new Point(1218, 510);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(171, 57);
+            button1.Size = new Size(120, 34);
             button1.TabIndex = 24;
             button1.Text = "OS";
             button1.UseVisualStyleBackColor = true;
@@ -202,9 +213,10 @@
             // 
             button7.FlatAppearance.MouseDownBackColor = SystemColors.ButtonFace;
             button7.Font = new Font("Segoe UI", 11F);
-            button7.Location = new Point(1185, 850);
+            button7.Location = new Point(830, 510);
+            button7.Margin = new Padding(2, 2, 2, 2);
             button7.Name = "button7";
-            button7.Size = new Size(171, 57);
+            button7.Size = new Size(120, 34);
             button7.TabIndex = 25;
             button7.Text = "Cliente";
             button7.UseVisualStyleBackColor = true;
@@ -212,9 +224,9 @@
             // 
             // Carros
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 1050);
+            ClientSize = new Size(1347, 630);
             Controls.Add(button7);
             Controls.Add(button1);
             Controls.Add(button6);
@@ -227,6 +239,7 @@
             Controls.Add(button4);
             Controls.Add(button5);
             Controls.Add(button2);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Carros";
             Text = "Carros";
             WindowState = FormWindowState.Maximized;

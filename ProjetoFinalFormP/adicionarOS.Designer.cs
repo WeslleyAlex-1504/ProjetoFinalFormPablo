@@ -48,9 +48,10 @@
             button3.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(327, 582);
+            button3.Location = new Point(229, 349);
+            button3.Margin = new Padding(2, 2, 2, 2);
             button3.Name = "button3";
-            button3.Size = new Size(177, 68);
+            button3.Size = new Size(124, 41);
             button3.TabIndex = 37;
             button3.Text = "Cancelar";
             button3.UseVisualStyleBackColor = false;
@@ -62,9 +63,10 @@
             button4.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.Location = new Point(66, 582);
+            button4.Location = new Point(46, 349);
+            button4.Margin = new Padding(2, 2, 2, 2);
             button4.Name = "button4";
-            button4.Size = new Size(177, 68);
+            button4.Size = new Size(124, 41);
             button4.TabIndex = 36;
             button4.Text = "Criar";
             button4.UseVisualStyleBackColor = false;
@@ -74,19 +76,22 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(136, 318);
+            label4.Location = new Point(95, 191);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(49, 30);
+            label4.Size = new Size(35, 20);
             label4.TabIndex = 32;
             label4.Text = "Dia:";
             // 
             // textBox2
             // 
             textBox2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(249, 372);
+            textBox2.Location = new Point(174, 223);
+            textBox2.Margin = new Padding(2, 2, 2, 2);
+            textBox2.MaxLength = 8;
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "Digite a placa do carro...";
-            textBox2.Size = new Size(255, 37);
+            textBox2.Size = new Size(180, 27);
             textBox2.TabIndex = 31;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
@@ -94,20 +99,22 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(136, 372);
+            label3.Location = new Point(95, 223);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(67, 30);
+            label3.Size = new Size(47, 20);
             label3.TabIndex = 30;
             label3.Text = "Placa:";
             // 
             // textBox1
             // 
             textBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(250, 263);
+            textBox1.Location = new Point(175, 158);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.MaxLength = 99999;
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Digite a descrição...";
-            textBox1.Size = new Size(254, 37);
+            textBox1.Size = new Size(179, 27);
             textBox1.TabIndex = 29;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -115,9 +122,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(136, 263);
+            label2.Location = new Point(95, 158);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(111, 30);
+            label2.Size = new Size(77, 20);
             label2.TabIndex = 28;
             label2.Text = "Descrição:";
             // 
@@ -125,9 +133,10 @@
             // 
             panel2.BackColor = Color.Goldenrod;
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(0, -2);
+            panel2.Location = new Point(0, -1);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(574, 130);
+            panel2.Size = new Size(402, 78);
             panel2.TabIndex = 27;
             // 
             // label1
@@ -135,9 +144,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(39, 41);
+            label1.Location = new Point(27, 25);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(496, 48);
+            label1.Size = new Size(333, 32);
             label1.TabIndex = 0;
             label1.Text = "Cadastro de ordem de serviço";
             // 
@@ -152,18 +162,17 @@
             // 
             dateTimePicker1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(249, 315);
-            dateTimePicker1.Margin = new Padding(4, 5, 4, 5);
+            dateTimePicker1.Location = new Point(174, 189);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(255, 37);
+            dateTimePicker1.Size = new Size(180, 27);
             dateTimePicker1.TabIndex = 40;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // adicionarOS
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(573, 663);
+            ClientSize = new Size(401, 398);
             Controls.Add(dateTimePicker1);
             Controls.Add(button3);
             Controls.Add(button4);
@@ -173,7 +182,6 @@
             Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(panel2);
-            Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             Name = "adicionarOS";
             StartPosition = FormStartPosition.CenterScreen;

@@ -45,7 +45,7 @@ namespace ProjetoFinalFormP
 
                 using (var conexao = Conexao.ObterConexao())
                 {
-                    string sqlCarro = "SELECT Id FROM Carro WHERE Placa = @Placa";
+                    string sqlCarro = "SELECT Id FROM Carro WHERE Placa = @Placa AND Ativo = 1";
 
                     int carroId;
                     using (var cmdCarro = new MySqlCommand(sqlCarro, conexao))
@@ -55,7 +55,7 @@ namespace ProjetoFinalFormP
 
                         if (result == null)
                         {
-                            MessageBox.Show("Carro não encontrado com essa placa.");
+                            MessageBox.Show("Carro não encontrado ou está inativado.");
                             return;
                         }
 
